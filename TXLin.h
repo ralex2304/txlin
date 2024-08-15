@@ -9,8 +9,8 @@ LICENSE file in the source folder for more info.
 
 #ifndef TXLIN_H
 #define TXLIN_H
-#include <SDL.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <sys/types.h>
@@ -543,9 +543,11 @@ namespace TX {
         TXLIN_WARNING("txPlayVideo only works on macOS, because currently, only QuickTime X is supported.");
         return -1;
 #endif
-        std::string cmdQT = "open -a 'QuickTime Player' '" + fn + "'";
+        std::string cmdQT = "open -a 'QuickTime Player' '";
+        cmdQT += fn;
+        cmdQT += "'";
         clock_t startTime = clock() / CLOCKS_PER_SEC;
-        std::system(cmdQT);
+        std::system(cmdQT.c_str());
         clock_t endTime = clock() / CLOCKS_PER_SEC;
         int difference = (int)(endTime - startTime);
         return difference;

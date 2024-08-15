@@ -211,7 +211,7 @@ void speakAndPrint(const char* text, CatEmotions state, FactsImages image) {
 			txLine(43, 18, 19, 124);
 		}
 		else if (image == NoTriangle) {
-			txTriangle(20, 61, 30, 20, 40, 61);
+			//txTriangle(20, 61, 30, 20, 40, 61);
 			txLine(19, 18, 43, 62);
 			txLine(43, 18, 19, 62);
 		}
